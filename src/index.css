@@ -1,3 +1,71 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+  transition: all 0.2s ease;
+}
+
+/* Glass effect for floating elements */
+.glass-effect {
+  @apply backdrop-blur-md bg-white/80 border border-white/20 shadow-lg;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-400;
+}
+
+/* Card hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+/* Section transitions */
+.section-transition {
+  @apply relative overflow-hidden;
+}
+
+.section-transition::after {
+  content: '';
+  @apply absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent pointer-events-none;
+}
+
+/* Improve input elements */
+input, select, textarea {
+  @apply focus:ring-2 focus:ring-primary-300 focus:border-primary-500 focus:outline-none;
+  transition: all 0.2s ease;
+}
