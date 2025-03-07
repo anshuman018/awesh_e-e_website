@@ -18,7 +18,7 @@ export default function About() {
         </AnimatedElement>
 
         {/* Stats with Enhanced Visual Appeal */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
               icon: <Award className="w-10 h-10" />,
@@ -48,7 +48,9 @@ export default function About() {
             <AnimatedElement 
               key={index} 
               animation="up" 
-              delay={200 + index * 100} 
+              delay={100 + index * 50} // Reduced delay between items
+              speed="fast" 
+              distance={15}
               className="bg-white p-6 rounded-xl shadow-sm border border-neutral-100 transition-all duration-300 hover:shadow-md hover:-translate-y-1"
             >
               <div className={`${item.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-5`}>

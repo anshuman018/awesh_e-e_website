@@ -50,7 +50,7 @@ export default function Notifications() {
                   className={`p-3 rounded-lg flex justify-between items-start ${
                     notification.type === 'success' ? 'bg-green-50 dark:bg-green-900/20' :
                     notification.type === 'warning' ? 'bg-yellow-50 dark:bg-yellow-900/20' :
-                    'bg-blue-50 dark:bg-blue-900/20'
+                    'bg-primary-50 dark:bg-primary-900/20'
                   }`}
                 >
                   <p className="text-sm">{notification.message}</p>

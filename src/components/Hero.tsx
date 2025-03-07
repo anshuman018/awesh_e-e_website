@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, PhoneCall, ChevronDown } from 'lucide-react';
 import AnimatedElement from './AnimatedElement';
+import ResponsiveImage from './ResponsiveImage';
 
 export default function Hero() {
   const scrollToNext = () => {
@@ -14,42 +15,39 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative h-screen overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-700/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-950/90 z-10"></div>
-        <img
-          src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80"
-          alt="Electronics repair"
-          className="w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-primary-900/20 backdrop-blur-sm z-0"></div>
-      </div>
+    <section className="relative h-screen overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-500 via-primary-700 to-primary-900 opacity-90"></div>
+      <ResponsiveImage
+        src="https://images.unsplash.com/photo-1580584126903-c17d41830450?q=80&w=2079&auto=format&fit=crop"
+        alt="Electronics workshop"
+        className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
+        width={1920}
+        height={1080}
+      />
+      <div className="absolute inset-0 texture-overlay opacity-10"></div>
       
       <div className="relative container mx-auto px-4 h-screen flex items-center z-20">
         <div className="max-w-3xl">
-          <AnimatedElement animation="fade" delay={200}>
+          <AnimatedElement animation="fade" delay={100} speed="fast">
             <div className="inline-block mb-4 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
               <span className="text-primary-100 font-medium">Trusted by 5000+ customers in Singrauli</span>
             </div>
           </AnimatedElement>
           
-          <AnimatedElement animation="up" delay={300}>
+          <AnimatedElement animation="up" delay={200} speed="fast" distance={15}>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
               Expert <span className="text-primary-300">Electronics</span> Repair & Service
             </h1>
           </AnimatedElement>
           
-          <AnimatedElement animation="up" delay={400}>
+          <AnimatedElement animation="up" delay={300} speed="fast" distance={15}>
             <p className="text-xl text-primary-100 mb-10 max-w-2xl leading-relaxed">
               Your trusted partner for all home appliance repairs. Professional service
               for TVs, ACs, refrigerators, and more with guaranteed workmanship.
             </p>
           </AnimatedElement>
           
-          <AnimatedElement animation="up" delay={500}>
+          <AnimatedElement animation="up" delay={400} speed="fast" distance={15}>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#services"
@@ -105,3 +103,11 @@ export default function Hero() {
     </section>
   );
 }
+
+// For CTA sections
+<div className="bg-cta-pattern bg-cover bg-center relative">
+  <div className="absolute inset-0 bg-primary-900/70"></div>
+  <div className="relative container z-10 py-20">
+    {/* Content here */}
+  </div>
+</div>

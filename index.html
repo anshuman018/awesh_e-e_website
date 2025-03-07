@@ -11,6 +11,24 @@
     <meta property="og:description" content="Professional electronic and electrical repair services in Singrauli" />
     <meta property="og:image" content="/logos/awesh_E&E_logo.jpg" />
     <meta property="og:url" content="https://aweshelectronics.in" />
+    <!-- Add these lines after meta tags and before other resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Preload critical hero image if you have one -->
+    <link rel="preload" href="/logos/hero-image.jpg" as="image" type="image/jpeg">
+    
+    <!-- Add this before your main CSS -->
+    <style>
+      /* Inline critical CSS here */
+      body{margin:0;font-family:system-ui,sans-serif}
+      .min-h-screen{min-height:100vh}
+      .container{margin:0 auto;padding:0 1rem}
+      .header{position:fixed;top:0;left:0;right:0;z-index:50}
+      .hero{padding-top:5rem;padding-bottom:4rem}
+    </style>
   </head>
   <body>
     <div id="root"></div>

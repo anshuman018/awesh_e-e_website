@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import AnimatedElement from './AnimatedElement';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -72,18 +73,20 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-4">CONTACT US</span>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch With Us</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're here to help with all your electronic repair needs. Reach out to us for quick, professional service.
-          </p>
-        </div>
+        <AnimatedElement animation="up">
+          <div className="text-center mb-16">
+            <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-4">CONTACT US</span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch With Us</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We're here to help with all your electronic repair needs. Reach out to us for quick, professional service.
+            </p>
+          </div>
+        </AnimatedElement>
 
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-8 items-start">
             {/* Contact Information Card */}
-            <div className="lg:col-span-1">
+            <AnimatedElement animation="left" delay={200} className="lg:col-span-1">
               <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 transition-transform hover:shadow-xl">
                 <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8">
                   <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
@@ -169,10 +172,10 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-            </div>
+            </AnimatedElement>
             
             {/* Contact Form */}
-            <div className="lg:col-span-2">
+            <AnimatedElement animation="right" delay={400} className="lg:col-span-2">
               <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
                 <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
                 
@@ -352,11 +355,10 @@ export default function Contact() {
                       type="submit"
                       disabled={isSubmitting}
                       className={`
-                        flex items-center justify-center px-8 py-3 rounded-lg text-white font-medium
-                        transition-all duration-300 transform hover:translate-y-[-2px]
+                        w-full py-3 rounded-lg text-white font-medium flex items-center justify-center transition-all
                         ${isSubmitting 
-                          ? 'bg-blue-400 cursor-not-allowed' 
-                          : 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-md hover:shadow-lg'
+                          ? 'bg-primary-400 cursor-not-allowed' 
+                          : 'bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 shadow-md hover:shadow-lg'
                         }
                       `}
                     >
@@ -393,7 +395,7 @@ export default function Contact() {
                 <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
                   <div className="mx-auto w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 mb-2">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                      <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.660.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
                     </svg>
                   </div>
                   <p className="text-gray-800 text-sm font-medium">Expert Technicians</p>
@@ -409,7 +411,7 @@ export default function Contact() {
                   <p className="text-gray-500 text-xs">Manufacturer warranty</p>
                 </div>
               </div>
-            </div>
+            </AnimatedElement>
           </div>
         </div>
       </div>

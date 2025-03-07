@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Calculator, X } from 'lucide-react';
+import { Calculator, X, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const services = {
   'TV Repair': {
@@ -128,114 +129,141 @@ export default function PriceCalculator() {
   return (
     <div className="fixed bottom-24 right-6 z-50">
       {!isOpen ? (
-        <button
-          onClick={toggleCalculator}
-          className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+        <Link
+          to="/price-calculator"
+          className="group flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white py-3 px-5 rounded-lg shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-500/20"
+          aria-label="Open Price Calculator"
         >
           <Calculator className="w-5 h-5" />
-          <span>Price Calculator</span>
-        </button>
+          <span className="font-medium">Price Calculator</span>
+          <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-white/20"></div>
+        </Link>
       ) : (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 w-96 animate-fade-in">
-          <div className="flex items-center justify-between mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 w-96 animate-fade-in border border-gray-100 dark:border-gray-700">
+          <div className="flex items-center justify-between mb-5">
             <div className="flex items-center">
-              <Calculator className="w-6 h-6 text-blue-600 mr-2" />
-              <h3 className="text-lg font-semibold">Service Price Calculator</h3>
+              <div className="bg-primary-500 p-2 rounded-lg mr-3">
+                <Calculator className="w-5 h-5 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-primary-500 dark:text-primary-300">Service Price Estimator</h3>
             </div>
             <button 
               onClick={toggleCalculator}
-              className="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              aria-label="Close calculator"
             >
               <X className="w-5 h-5 text-gray-500" />
             </button>
           </div>
 
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium mb-1">Category</label>
-              <select
-                value={category}
-                onChange={handleCategoryChange}
-                className="w-full p-2 border rounded-lg"
-              >
-                <option value="">Select category</option>
-                {Object.keys(services).map(cat => (
-                  <option key={cat} value={cat}>{cat}</option>
-                ))}
-              </select>
+          <div className="space-y-5">
+            <div className="relative">
+              <label className="block text-sm font-medium mb-1.5 text-gray-700 dark:text-gray-300">Category</label>
+              <div className="relative">
+                <select
+                  value={category}
+                  onChange={handleCategoryChange}
+                  className="w-full p-2.5 pl-4 pr-10 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 appearance-none focus:ring-2 focus:ring-primary-300 focus:border-primary-500 transition-all"
+                >
+                  <option value="">Select category</option>
+                  {Object.keys(services).map(cat => (
+                    <option key={cat} value={cat}>{cat}</option>
+                  ))}
+                </select>
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+              </div>
             </div>
 
             {category && (
-              <div>
-                <label className="block text-sm font-medium mb-1">Service</label>
-                <select
-                  value={service}
-                  onChange={handleServiceChange}
-                  className="w-full p-2 border rounded-lg"
-                >
-                  <option value="">Select service</option>
-                  {Object.keys(services[category as keyof typeof services]).map(svc => (
-                    <option key={svc} value={svc}>{svc}</option>
-                  ))}
-                </select>
+              <div className="relative">
+                <label className="block text-sm font-medium mb-1.5 text-gray-700 dark:text-gray-300">Service</label>
+                <div className="relative">
+                  <select
+                    value={service}
+                    onChange={handleServiceChange}
+                    className="w-full p-2.5 pl-4 pr-10 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 appearance-none focus:ring-2 focus:ring-primary-300 focus:border-primary-500 transition-all"
+                  >
+                    <option value="">Select service</option>
+                    {Object.keys(services[category as keyof typeof services]).map(svc => (
+                      <option key={svc} value={svc}>{svc}</option>
+                    ))}
+                  </select>
+                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                </div>
               </div>
             )}
 
-            <div>
-              <label className="block text-sm font-medium mb-1">Service Type</label>
-              <select
-                value={serviceType}
-                onChange={handleServiceTypeChange}
-                className="w-full p-2 border rounded-lg"
-              >
-                {Object.keys(serviceTypes).map(type => (
-                  <option key={type} value={type}>{type}</option>
-                ))}
-              </select>
+            <div className="relative">
+              <label className="block text-sm font-medium mb-1.5 text-gray-700 dark:text-gray-300">Service Type</label>
+              <div className="relative">
+                <select
+                  value={serviceType}
+                  onChange={handleServiceTypeChange}
+                  className="w-full p-2.5 pl-4 pr-10 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 appearance-none focus:ring-2 focus:ring-primary-300 focus:border-primary-500 transition-all"
+                >
+                  {Object.keys(serviceTypes).map(type => (
+                    <option key={type} value={type}>{type}</option>
+                  ))}
+                </select>
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+              </div>
             </div>
 
-            <div className="flex items-center">
+            <div className="flex items-center p-2.5 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
               <input
                 type="checkbox"
                 id="transport"
                 checked={includeTransport}
                 onChange={handleTransportToggle}
-                className="mr-2"
+                className="w-4 h-4 mr-3 accent-primary-500"
               />
-              <label htmlFor="transport" className="text-sm">Include Transportation</label>
+              <label htmlFor="transport" className="text-sm font-medium">Include Transportation</label>
             </div>
 
             {includeTransport && (
-              <div>
-                <label className="block text-sm font-medium mb-1">Transport For</label>
-                <select
-                  value={transportItem}
-                  onChange={handleTransportItemChange}
-                  className="w-full p-2 border rounded-lg"
-                >
-                  <option value="">Select item</option>
-                  {Object.keys(transportationCharges).map(item => (
-                    <option key={item} value={item}>{item}</option>
-                  ))}
-                </select>
+              <div className="relative">
+                <label className="block text-sm font-medium mb-1.5 text-gray-700 dark:text-gray-300">Transport For</label>
+                <div className="relative">
+                  <select
+                    value={transportItem}
+                    onChange={handleTransportItemChange}
+                    className="w-full p-2.5 pl-4 pr-10 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 appearance-none focus:ring-2 focus:ring-primary-300 focus:border-primary-500 transition-all"
+                  >
+                    <option value="">Select item</option>
+                    {Object.keys(transportationCharges).map(item => (
+                      <option key={item} value={item}>{item}</option>
+                    ))}
+                  </select>
+                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                </div>
               </div>
             )}
 
             {totalPrice > 0 && (
-              <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg border border-blue-100 dark:border-blue-800">
-                <p className="text-center font-semibold text-lg">
-                  Estimated Price: ₹{totalPrice}
+              <div className="mt-5 p-4 bg-primary-50 dark:bg-primary-900/20 rounded-lg border border-primary-100 dark:border-primary-800 overflow-hidden relative">
+                <div className="texture-overlay absolute inset-0 opacity-5"></div>
+                <p className="text-center font-semibold text-lg text-primary-500 dark:text-primary-300 relative z-10">
+                  Estimated Price: <span className="text-xl">₹{totalPrice}</span>
                 </p>
-                <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-1">
+                <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-1 relative z-10">
                   *Final price may vary based on inspection
                 </p>
               </div>
             )}
             
-            <div className="text-xs text-gray-500 mt-2">
-              <p>• Local service within 25km radius</p>
-              <p>• Up Country charges apply beyond 25km</p>
-              <p>• Carry-in prices for drop-off at our service center</p>
+            <div className="mt-3 text-xs text-gray-500 dark:text-gray-400 space-y-1 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <p className="flex items-center">
+                <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 inline-block"></span>
+                Local service within 25km radius
+              </p>
+              <p className="flex items-center">
+                <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 inline-block"></span>
+                Up Country charges apply beyond 25km
+              </p>
+              <p className="flex items-center">
+                <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 inline-block"></span>
+                Carry-in prices for drop-off at our service center
+              </p>
             </div>
           </div>
         </div>

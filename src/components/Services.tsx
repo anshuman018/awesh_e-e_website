@@ -33,14 +33,57 @@ const services = [
   }
 ];
 
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://aweshelectronics.in"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://aweshelectronics.in/#services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "TV Repair Service", // or "AC Service" for that page
+      "item": "https://aweshelectronics.in/services/tv-repair" // adjust URL accordingly
+    }
+  ]
+};
+
+const serviceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Electronics Repair Services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Awesh Electronics"
+  }
+};
+
+const combinedStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [serviceStructuredData, breadcrumbStructuredData]
+};
+
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-neutral-50">
+    <section id="services" className="py-24 bg-neutral-50" aria-labelledby="services-heading">
       <div className="container mx-auto px-4">
-        <AnimatedElement animation="up">
+        {/* <SEOHead 
+          // other props remain the same
+          structuredData={combinedStructuredData}
+        /> */}
+        <AnimatedElement animation="fade">
           <div className="text-center mb-16">
-            <span className="inline-block py-1 px-3 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">OUR SERVICES</span>
-            <h2 className="text-4xl font-bold text-neutral-900 mb-4">Professional Electronics Services</h2>
+            <h2 id="services-heading" className="text-4xl font-bold text-neutral-900 mb-4">Professional Electronics Services</h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
               Fast, reliable repair and maintenance services for all your home appliances
             </p>
@@ -60,20 +103,21 @@ export default function Services() {
                   Popular
                 </span>
               )}
-              <div className="p-8 flex-grow">
-                <div className="w-16 h-16 bg-primary-50 rounded-lg flex items-center justify-center mb-6 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-500">
+              <article className="p-8 flex-grow">
+                <div className="w-16 h-16 bg-primary-50 rounded-lg flex items-center justify-center mb-6 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-500" aria-hidden="true">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-4">{service.title}</h3>
                 <p className="text-neutral-600">{service.description}</p>
-              </div>
+              </article>
               <div className="pt-2 pb-6 px-8 mt-auto">
                 <a 
                   href={service.link} 
                   className="flex items-center font-medium text-primary-600 group-hover:text-primary-700 transition-colors"
+                  aria-label={`Book ${service.title} service`}
                 >
                   Book service
-                  <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-2" />
+                  <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-2" aria-hidden="true" />
                 </a>
               </div>
             </AnimatedElement>

@@ -1,27 +1,30 @@
 import React from 'react';
 import { MapPin, Clock, Phone, Car, Route } from 'lucide-react';
+import AnimatedElement from './AnimatedElement';
 
 export default function LocationMap() {
   return (
     <section id="map" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-4">OUR LOCATION</span>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Visit Our Store</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Conveniently located at Amlori Mod for easy access
-          </p>
-        </div>
+        <AnimatedElement animation="up">
+          <div className="text-center mb-16">
+            <span className="inline-block py-1 px-3 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">OUR LOCATION</span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Visit Our Store</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Conveniently located at Amlori Mod for easy access
+            </p>
+          </div>
+        </AnimatedElement>
 
         <div className="grid md:grid-cols-3 gap-8">
           {/* Location info card */}
-          <div className="md:col-span-1">
+          <AnimatedElement animation="left" delay={200} className="md:col-span-1">
             <div className="bg-white rounded-xl shadow-lg p-8 h-full border border-gray-100">
               <h3 className="text-2xl font-bold mb-6 border-b border-gray-100 pb-4">Store Information</h3>
               
               <div className="space-y-6">
                 <div className="flex">
-                  <MapPin className="w-6 h-6 text-blue-600 mr-4 flex-shrink-0" />
+                  <MapPin className="w-6 h-6 text-primary-500 mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Address</h4>
                     <p className="text-gray-700">
@@ -33,7 +36,7 @@ export default function LocationMap() {
                 </div>
                 
                 <div className="flex">
-                  <Clock className="w-6 h-6 text-blue-600 mr-4 flex-shrink-0" />
+                  <Clock className="w-6 h-6 text-primary-500 mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Business Hours</h4>
                     <p className="text-gray-700">
@@ -44,18 +47,18 @@ export default function LocationMap() {
                 </div>
                 
                 <div className="flex">
-                  <Phone className="w-6 h-6 text-blue-600 mr-4 flex-shrink-0" />
+                  <Phone className="w-6 h-6 text-primary-500 mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Contact</h4>
                     <p className="text-gray-700">
-                      <a href="tel:7610138113" className="hover:text-blue-600">7610138113</a><br />
-                      <a href="tel:9669231117" className="hover:text-blue-600">9669231117</a>
+                      <a href="tel:7610138113" className="hover:text-primary-500">7610138113</a><br />
+                      <a href="tel:9669231117" className="hover:text-primary-500">9669231117</a>
                     </p>
                   </div>
                 </div>
                 
                 <div className="flex">
-                  <Route className="w-6 h-6 text-blue-600 mr-4 flex-shrink-0" />
+                  <Route className="w-6 h-6 text-primary-500 mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Nearby Landmarks</h4>
                     <ul className="text-gray-700 list-disc pl-5">
@@ -72,17 +75,17 @@ export default function LocationMap() {
                   href="https://www.google.com/maps/dir//Amlori+Mod/@24.0999118,82.610449,17z/"
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg transition-colors w-full"
+                  className="flex items-center justify-center bg-primary-500 hover:bg-primary-600 text-white py-3 px-6 rounded-lg transition-colors w-full shadow-sm hover:shadow-md"
                 >
                   <Car className="mr-2 w-5 h-5" />
                   Get Directions
                 </a>
               </div>
             </div>
-          </div>
+          </AnimatedElement>
           
           {/* Map container */}
-          <div className="md:col-span-2">
+          <AnimatedElement animation="right" delay={300} className="md:col-span-2">
             <div className="rounded-xl overflow-hidden shadow-lg border border-gray-100 h-full">
               <div className="w-full h-full min-h-[500px] relative">
                 <iframe 
@@ -95,7 +98,7 @@ export default function LocationMap() {
                 />
               </div>
             </div>
-          </div>
+          </AnimatedElement>
         </div>
       </div>
     </section>

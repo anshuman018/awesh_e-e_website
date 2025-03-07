@@ -27,7 +27,7 @@ export default function CookieConsent() {
         <div className="flex items-center space-x-4">
           <button
             onClick={acceptCookies}
-            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            className="bg-primary-500 text-white px-6 py-2 rounded-lg hover:bg-primary-600 transition-colors"
           >
             Accept
           </button>
