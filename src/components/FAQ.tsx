@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 import AnimatedElement from './AnimatedElement';
 
 const faqs = [
@@ -82,6 +82,17 @@ export default function FAQ() {
               </div>
             </AnimatedElement>
           ))}
+        </div>
+
+        <div className="bg-primary-50 border border-primary-100 rounded-xl p-6 shadow-sm mt-12">
+          <h3 className="text-xl font-semibold text-primary-800 mb-2">Having trouble with your appliance?</h3>
+          <p className="text-primary-600 mb-4">
+            Our diagnostic guides can help you identify the issue before scheduling a service.
+          </p>
+          <a href="/diagnostics" className="inline-flex items-center justify-center px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors">
+            Try our diagnostic tool
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </a>
         </div>
       </div>
     </section>

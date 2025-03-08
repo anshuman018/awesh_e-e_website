@@ -17,13 +17,13 @@ export default function Hero() {
   return (
     <section className="relative h-screen overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary-500 via-primary-700 to-primary-900 opacity-90"></div>
-      <ResponsiveImage
+      {/* <ResponsiveImage
         src="https://images.unsplash.com/photo-1580584126903-c17d41830450?q=80&w=2079&auto=format&fit=crop"
         alt="Electronics workshop"
         className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
         width={1920}
         height={1080}
-      />
+      /> */}
       <div className="absolute inset-0 texture-overlay opacity-10"></div>
       
       <div className="relative container mx-auto px-4 h-screen flex items-center z-20">

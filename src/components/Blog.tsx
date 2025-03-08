@@ -117,7 +117,7 @@ export default function Blog() {
             </div>
             <a
               href="/blog"
-              className="hidden md:flex items-center text-blue-600 hover:text-blue-700"
+              className="hidden md:flex items-center text-primary-500 hover:text-primary-600"
             >
               View all guides
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -140,7 +140,7 @@ export default function Blog() {
                   />
                 </div>
                 <div className="p-6">
-                  <p className="text-blue-600 text-sm mb-2 font-medium">
+                  <p className="text-primary-500 text-sm mb-2 font-medium">
                     {new Date(post.date).toLocaleDateString('en-US', {
                       month: 'long',
                       day: 'numeric',
@@ -151,7 +151,7 @@ export default function Blog() {
                   <p className="text-gray-600 mb-4">{post.excerpt}</p>
                   <button
                     onClick={() => openFullArticle(post)}
-                    className="text-blue-600 hover:text-blue-700 font-medium flex items-center bg-transparent border-none p-0 cursor-pointer"
+                    className="text-primary-500 hover:text-primary-600 font-medium flex items-center bg-transparent border-none p-0 cursor-pointer"
                   >
                     Read full guide
                     <ArrowRight className="ml-2 w-4 h-4" />
@@ -162,30 +162,13 @@ export default function Blog() {
           ))}
         </div>
 
-        <AnimatedElement animation="up" delay={500}>
-          <div className="mt-12 bg-blue-50 rounded-xl p-8 border border-blue-100">
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="mb-6 md:mb-0">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Having trouble with your appliance?</h3>
-                <p className="text-gray-700">Our diagnostic guides can help you identify the issue before scheduling a service.</p>
-              </div>
-              {/* Replace the regular anchor with Link component */}
-              <Link
-                to="/diagnostics"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300 inline-flex items-center"
-              >
-                Try our diagnostic tool
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </div>
-          </div>
-        </AnimatedElement>
-
+        {/* Remove the entire diagnostic tool section */}
+        
         {/* Also update the "View all guides" links */}
         <div className="text-center mt-8 md:hidden">
           <Link
             to="/blog"
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
+            className="inline-flex items-center text-primary-500 hover:text-primary-600 font-medium"
           >
             View all guides
             <ArrowRight className="ml-2 w-5 h-5" />
@@ -209,7 +192,7 @@ export default function Blog() {
             
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <p className="text-blue-600 text-sm font-medium">
+                <p className="text-primary-500 text-sm font-medium">
                   {new Date(selectedPost.date).toLocaleDateString('en-US', {
                     month: 'long',
                     day: 'numeric',
@@ -234,7 +217,7 @@ export default function Blog() {
                 <div className="flex flex-wrap gap-3">
                   <a 
                     href="#contact" 
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+                    className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg font-medium transition-colors"
                   >
                     Contact us
                   </a>

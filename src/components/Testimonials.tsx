@@ -25,9 +25,9 @@ const testimonials = [
     rating: 5
   },
   {
-    name: "Rakesh Kumar",
-    role: "School Principal",
-    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+    name: "Ashutosh Kumar Singh",
+    role: "Aerospace Engineer",
+    image: "/logos/ashutosh.jpeg",
     content: "I've been using Awesh Electronics for our school's AV equipment maintenance. Their knowledge and prompt service are outstanding.",
     rating: 5
   }
@@ -61,7 +61,7 @@ export default function Testimonials() {
       <div className="container mx-auto px-4">
         <AnimatedElement animation="up">
           <div className="text-center mb-16">
-            <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-4">TESTIMONIALS</span>
+            <span className="inline-block py-1 px-3 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">TESTIMONIALS</span>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Don't just take our word for it - hear from our satisfied customers across Singrauli
@@ -124,13 +124,13 @@ export default function Testimonials() {
               <>
                 <button 
                   onClick={prevSlide}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-blue-600 hover:bg-blue-50"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-primary-500 hover:bg-primary-50"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button 
                   onClick={nextSlide}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-blue-600 hover:bg-blue-50"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-primary-500 hover:bg-primary-50"
                 >
                   <ChevronRight className="w-6 h-6" />
                 </button>
@@ -144,7 +144,7 @@ export default function Testimonials() {
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
-                    activeIndex === index ? 'bg-blue-600 w-8' : 'bg-gray-300'
+                    activeIndex === index ? 'bg-primary-500 w-8' : 'bg-gray-300'
                   }`}
                 />
               ))}

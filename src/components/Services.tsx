@@ -1,4 +1,3 @@
-import React from 'react';
 import { Tv, Wind, Smartphone, Radio, ArrowRight } from 'lucide-react';
 import AnimatedElement from './AnimatedElement';
 
